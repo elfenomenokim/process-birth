@@ -8,6 +8,8 @@ A Python module that turns a process start time into one UTC second value, so a 
 
 [한국어](README.ko.md) · Python 3.9+
 
+[![pypi](https://img.shields.io/pypi/v/process-birth?label=pypi)](https://pypi.org/project/process-birth/)
+[![tests](https://github.com/elfenomenokim/process-birth/actions/workflows/tests.yml/badge.svg)](https://github.com/elfenomenokim/process-birth/actions/workflows/tests.yml)
 [![license](https://img.shields.io/github/license/elfenomenokim/process-birth)](LICENSE)
 
 [Install](#install) · [Quick start](#quick-start) · [Why](#why) · [Reference](#reference)
