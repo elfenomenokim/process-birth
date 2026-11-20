@@ -1,0 +1,12 @@
+{
+  "schema": "process-birth-bench/1",
+  "date": "2026-11-19",
+  "host": "macOS arm64 (Apple M5 Pro)",
+  "python": "3.12.8",
+  "epoch_parse_us_min": 3.46,
+  "epoch_parse_us_median": 3.92,
+  "snapshot_rows": 1077,
+  "snapshot_ms": 51.0,
+  "invalid_values_return_none": true,
+  "missing_observations_match": false
+}

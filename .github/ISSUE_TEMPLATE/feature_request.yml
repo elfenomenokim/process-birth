@@ -1,0 +1,35 @@
+name: Feature request
+description: Propose another process source, format, or comparison helper.
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What you cannot identify today, on which platform, with the `ps` output you do get.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you propose
+      description: The function, argument, or format you want. Name the caller that needs it.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: What you tried instead
+      description: `/proc`, `sysctl`, a wrapper, or nothing.
+    validations:
+      required: false
+  - type: dropdown
+    id: singlefile
+    attributes:
+      label: Can it stay inside one standard-library file?
+      options:
+        - "Yes"
+        - "No, and I explain what extra dependency it needs"
+        - "I am not sure"
+    validations:
+      required: true

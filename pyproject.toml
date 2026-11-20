@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "process-birth"
+version = "0.2.0"
+description = "A Python module that turns a process start time into one UTC second value, so a reused PID is never mistaken for the same process."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "El Fenomeno" }]
+keywords = ["process", "pid", "pid-reuse", "identity", "ps", "python", "utc"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Operating System :: MacOS",
+  "Operating System :: POSIX :: Linux",
+  "Operating System :: Microsoft :: Windows",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: System :: Systems Administration",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/elfenomenokim/process-birth"
+Repository = "https://github.com/elfenomenokim/process-birth"
+Issues = "https://github.com/elfenomenokim/process-birth/issues"
+
+[tool.setuptools]
+packages = []
+py-modules = ["process_birth"]
