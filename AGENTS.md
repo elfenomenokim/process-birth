@@ -1,5 +1,27 @@
 # AGENTS.md
 
+## Set up for a user
+
+Goal: the user's Python project can `import process_birth` and compare a saved process start time with a live process. This is a single-file library; "working" means the check below runs with the project's own interpreter. macOS and Linux (it calls `ps`).
+
+1. Check what is present.
+   - Find the project (the folder with `pyproject.toml` or `requirements.txt`); if the user did not say which, ask: "어느 프로젝트에 넣을까요? 폴더 위치를 알려주세요." Do not install into the system Python.
+   - `uv --version` prints a version. If not: `curl -LsSf https://astral.sh/uv/install.sh | sh`, then `export PATH="$HOME/.local/bin:$PATH"`.
+   - The project's interpreter is Python 3.9 or newer; no venv yet: `uv venv` in the project folder.
+   - `ps -axo pid=,lstart= | head -1` prints a row.
+2. Install into the project: `uv add process-birth` (uv-managed project), or `uv pip install process-birth` (plain venv). No dependencies. A remote bundle that must stay one file can instead copy `process_birth.py` from the repository.
+3. Nothing here needs the person.
+4. Prove it, with the project's interpreter:
+   ```sh
+   python -c "import process_birth as p; s = p.epoch('Sat Sep 26 11:54:39 2026', legacy_zone='UTC'); print(s, p.read(1) is not None, p.same(s, s), p.same(None, None))"
+   ```
+   Success prints `1790423679 True True False`.
+5. If it fails, in this order:
+   - `externally-managed-environment` from pip: you used the system Python; use the project's venv.
+   - `ModuleNotFoundError: process_birth`: the check ran with a different interpreter than the install.
+   - `read(1)` is `None` (second value `False`): `ps` is missing or blocked (a minimal container without procps, or a sandbox); install `procps` or report the `ps` error.
+   - Windows: not supported.
+
 ## Layout
 
 - `process_birth.py`: the whole module — parsing, the `ps` calls, comparison, and the CLI entry point.
